@@ -12,7 +12,7 @@ def main() -> None:
     parser.add_argument("--config", required=True)
     args = parser.parse_args()
 
-    cfg = Config.from_yaml(args.config)
+    Config.from_yaml(args.config)
 
     # Wire stages here as they're built, e.g.:
     # from pipeline.dataset import run as dataset_run

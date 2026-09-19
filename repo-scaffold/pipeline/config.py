@@ -31,4 +31,7 @@ class Config:
     def from_yaml(cls, path: str | Path) -> "Config":
         with open(path) as f:
             raw = yaml.safe_load(f) or {}
-        return cls(**{**dataclasses.asdict(cls()), **raw})
+        values = {**dataclasses.asdict(cls()), **raw}
+        for field_name in ("data_dir", "artifacts_dir", "results_dir"):
+            values[field_name] = Path(values[field_name])
+        return cls(**values)
