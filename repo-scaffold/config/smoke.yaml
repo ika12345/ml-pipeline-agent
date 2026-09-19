@@ -1,0 +1,4 @@
+task_id: smoke
+stage: smoke
+approach: smoke
+data_dir: data/smoke_sample
